@@ -60,9 +60,9 @@ public sealed class GuiSettings
     /// </summary>
     public string DiscordClientId { get; set; } = "1525606762248540221";
 
-    // The emulator is portable and keeps its data next to the executable;
-    // the GUI follows the same convention.
-    public static string SettingsPath => Path.Combine(AppContext.BaseDirectory, "gui-settings.json");
+    // Data location is resolved per-platform by AppPaths: portable (next to
+    // the executable) on Windows, and ~/.config/SharpEmu on Linux and macOS.
+    public static string SettingsPath => AppPaths.SettingsFile;
 
     public static GuiSettings Load()
     {

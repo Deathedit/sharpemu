@@ -31,8 +31,7 @@ public sealed class PerGameSettings
         LogToFile is null &&
         EnvironmentToggles is null;
 
-    public static string DirectoryPath =>
-        Path.Combine(AppContext.BaseDirectory, "user", "custom_configs");
+    public static string DirectoryPath => AppPaths.CustomConfigsDirectory;
 
     public static string PathFor(string titleId) =>
         Path.Combine(DirectoryPath, SanitizeTitleId(titleId) + ".json");

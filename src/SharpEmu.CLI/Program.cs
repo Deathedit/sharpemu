@@ -726,8 +726,7 @@ internal static partial class Program
 
     private static string BuildDefaultLogFilePath(string? ebootPath)
     {
-        var baseDirectory = AppContext.BaseDirectory;
-        var logsDirectory = Path.Combine(baseDirectory, "user", "logs");
+        var logsDirectory = SharpEmu.GUI.AppPaths.LogsDirectory;
         var name = TryReadTitleId(ebootPath) ?? "UNKNOWN";
 
         foreach (var invalid in Path.GetInvalidFileNameChars())

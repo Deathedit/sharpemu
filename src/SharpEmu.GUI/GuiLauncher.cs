@@ -35,8 +35,9 @@ public static class GuiLauncher
     {
         try
         {
+            AppPaths.EnsureDirectory(AppPaths.Root);
             File.AppendAllText(
-                Path.Combine(AppContext.BaseDirectory, "gui-crash.log"),
+                AppPaths.CrashLogFile,
                 $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {ex}{Environment.NewLine}{Environment.NewLine}");
         }
         catch (Exception)
